@@ -9,9 +9,19 @@
   <body>
     <!-- Sidebar -->
     <div class="sidebar">
-      <!-- =====================
-      Add elements in this space
-      ====================== -->
+      <label id="label1" for="input1">Dataset</label>
+      <input id="input1" class="input-text" type="url">
+      <br>
+      <br>
+      <label id="label2" for="input2">Latitude</label>
+      <input id="input2" class="input-text" type="text">
+      <br>
+      <br>
+      <label id="label3" for="input3">Longitude</label>
+      <input id="input3" class="input-text" type="text">
+      <br>
+      <br>
+      <button onclick="callback()">Submit</button>
     </div>
     <!-- Map -->
     <div id="map" class="map"></div>

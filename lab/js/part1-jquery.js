@@ -171,5 +171,58 @@ var Stamen_TonerLite = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/ton
 // the function passed to `ready` until the HTML document is fully loaded and all scripts have
 // been interpreted. It is, therefore, an example of asynchronous behavior.
 $(document).ready(function() {
-  // Do your stuff here
+  $("h1").text("Locating Nearby ATMs");
+  $("#text-label1").text("Address");
+  $("#text-input1").val("1217 Spring Garden St");
+  $("#text-label2").text("City");
+  $("#text-input2").val("Philadelphia");
+  $("#text-label3").text("State");
+  $("#text-input3").val("PA");
+  $("#number-label1").text("Zip Code");
+  $("#numeric-input1").val("19123");
+  $("#number-label2").text("Latitude");
+  $("#numeric-input2").val("39.962187");
+  $("#number-label3").text("Longitude");
+  $("#numeric-input3").val("75.158575");
+  $("#checkbox-label1").text("Show Coordinates");
+  $("#checkbox-label2").text("Save Data");
+  $("#color-label").text("Marker Color");
+  $("#color-input").val("#DA70D6");
+  $("button").text("Submit");
+
+  var form;
+  var input1, input2, input3, input4, input5, input6, input7, input8, input9;
+  var input = function() {
+    $("#text-input1").val();
+    $("#text-input2").val();
+    $("#text-input3").val();
+    $("#numeric-input1").val();
+    $("#numeric-input2").val();
+    $("#numeric-input3").val();
+    $("#cbox-input1").val();
+    $("#cbox-input2").val();
+    $("#color-input").val();
+    form = {"Address": input1, "City": input2, "State": input3, "ZipCode": input4, "Latitude": input5,
+    "Longitude": input6, "ShowCoordinates": input7, "SaveData": input8, "MarkerColor": input9
+    };
+   return form;
+  };
+ $("#text-input1").prop("disabled", false);
+ $("#text-input2").prop("disabled", false);
+ $("#text-input3").prop("disabled", false);
+ $("#numeric-input1").prop("disabled", false);
+ $("#numeric-input2").prop("disabled", false);
+ $("#numeric-input3").prop("disabled", false);
+ $("#cbox-input1").prop("checked", true);
+ $("#cbox-input1").prop("disabled", false);
+ $("#cbox-input2").prop( "checked", true );
+ $("#cbox-input2").prop("disabled", false);
+
+ $('button').click(function() {
+    input();
+    console.log(form);
+    L.circleMarker([form.Latitude, form.Longitude], form.MarkerColor).bindPopup(form.Adress + " " + form.City +
+     " " + form.State + " " + form.ZipCode).addTo(map);
+
+});
 });
